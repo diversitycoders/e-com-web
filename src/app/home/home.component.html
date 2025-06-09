@@ -1,0 +1,74 @@
+
+<body>
+   <div *ngIf="populatedproducts" class="d-flex justify-content-center ">
+  <div id="carouselExampleCaptions" class="carousel slide w-75" data-bs-ride="carousel">
+    
+    <!-- Indicators -->
+    <div class="carousel-indicators">
+      <button
+        *ngFor="let product of populatedproducts; let i = index"
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        [attr.data-bs-slide-to]="i"
+        [class.active]="i === 0"
+        [attr.aria-current]="i === 0 ? 'true' : null"
+        [attr.aria-label]="'Slide ' + (i + 1)">
+      </button>
+    </div>
+
+    <!-- Slides -->
+    <div class="carousel-inner rounded overflow-hidden">
+      <div
+        *ngFor="let product of populatedproducts; let i = index"
+        class="carousel-item"
+        [class.active]="i === 0"
+      >
+        <img 
+          [src]="product.photo" 
+          class="d-block w-100" 
+          style="max-height: 36%; object-fit: cover; aspect-ratio: 3 / 2;" 
+          alt="{{ product.productname }}"
+        >
+        <div class="carousel-caption bg-dark bg-opacity-50 rounded py-2 resdesc">
+          <h5>{{ product.productname }}</h5>
+          <p>{{ product.description }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+
+  </div>
+</div>
+
+ <!-- products-->
+ <div class="container py-4">
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let product of trendyproducts">
+      <div class="card h-100 shadow-sm border-0 product-card">
+        <img [src]="product.photo" class="card-img-top" alt="{{ product.productname }}">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title mb-1">{{ product.productname }}</h5>
+          <p class="text-muted mb-1"><small>Brand: {{ product.brand }}</small></p>
+          <p class="fw-bold text-primary">₹{{ product.price }}</p>
+          <p class="card-text text-secondary small flex-grow-1">{{ product.description }}</p>
+          <div class="d-flex justify-content-between mt-3">
+            <button class="btn btn-outline-primary btn-sm" routerLink="/detail/{{product.id}}">View Details</button>
+            <button class="btn btn-primary btn-sm" (click)="addToCart(product)" >Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+   

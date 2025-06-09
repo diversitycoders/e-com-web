@@ -1,0 +1,62 @@
+<body>
+  <!-- Login Form -->
+  <div class="container" *ngIf="!showsignup">
+    <div class="heading">Login</div>
+    <form class="form" #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+      <!-- Email Field -->
+      <input class="input" type="email" name="email" id="login-email" placeholder="E-mail" 
+             ngModel required email #email="ngModel">
+      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
+        <div *ngIf="email.errors?.['required']">Email is required</div>
+        <div *ngIf="email.errors?.['email']">Please enter a valid email</div>
+      </div>
+
+      <!-- Password Field -->
+      <input class="input" type="password" name="password" id="login-password" placeholder="Password" 
+             ngModel required minlength="6" #password="ngModel">
+      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error-message">
+        <div *ngIf="password.errors?.['required']">Password is required</div>
+        <div *ngIf="password.errors?.['minlength']">Password must be at least 6 characters</div>
+      </div>
+
+      <span class="forgot-password"><a href="#">Forgot Password?</a></span>
+      <span class="error" style="color: red;">{{errors}}</span>
+      <input class="login-button" type="submit" value="Sign In" [disabled]="!loginForm.valid">
+      <p class="p">Don't have an account? <span class="span" (click)="show()">Sign Up</span></p>
+    </form>
+  </div>
+
+  <!-- Signup Form -->
+  <div class="container" *ngIf="showsignup">
+    <div class="heading">Sign Up</div>
+    <form class="form" #signupForm="ngForm" (ngSubmit)="signup(signupForm.value)">
+      <!-- Name Field -->
+      <input class="input" type="text" name="name" id="signup-name" placeholder="User name" 
+             ngModel required minlength="2" #name="ngModel">
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="error-message">
+        <div *ngIf="name.errors?.['required']">Name is required</div>
+        <div *ngIf="name.errors?.['minlength']">Name must be at least 2 characters</div>
+      </div>
+
+      <!-- Email Field -->
+      <input class="input" type="email" name="email" id="signup-email" placeholder="E-mail" 
+             ngModel required email #email="ngModel">
+      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
+        <div *ngIf="email.errors?.['required']">Email is required</div>
+        <div *ngIf="email.errors?.['email']">Please enter a valid email</div>
+      </div>
+
+      <!-- Password Field -->
+      <input class="input" type="password" name="password" id="signup-password" placeholder="Password" 
+             ngModel required minlength="6" #password="ngModel">
+      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error-message">
+        <div *ngIf="password.errors?.['required']">Password is required</div>
+        <div *ngIf="password.errors?.['minlength']">Password must be at least 6 characters</div>
+      </div>
+
+      <span class="forgot-password"><a href="#">Forgot Password?</a></span>
+      <input class="login-button" type="submit" value="Sign Up" [disabled]="!signupForm.valid">
+      <p class="p">Have an account? <span class="span" (click)="show()">Login</span></p>
+    </form>
+  </div>
+</body>

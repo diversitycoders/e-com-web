@@ -1,0 +1,191 @@
+<!--default-->
+  <div [ngSwitch]="menutype">
+    <div *ngSwitchCase="'default'">
+      <nav>
+        <ul class="ul">
+          <li class="li"><a class="aa" >zozo</a></li>
+          <li class="li search-bar s">
+            <div class="search-container">
+              <input type="text" placeholder="Search..." #search class="search-input" (input)="suggestions($event)"
+                (blur)="closesuggestion()" [(ngModel)]="searchitem"/>
+              <button class="search-button" (click)="subsearch(search.value)">
+                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="#333">
+                  <path
+                    d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C8.01 14 6 11.99 6 9.5S8.01 5 10.5 5 15 7.01 15 9.5 12.99 14 10.5 14z" />
+                </svg>
+              </button>
+              <!-- Autosuggestion dropdown -->
+              <ul class="autosuggestion">
+                <li *ngFor="let item of autosuggestion" (mousedown)="subsearch(item.productname)">{{ item.productname }}
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="li"><a class="a aa s" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}">home</a></li>
+          <li class="li"><a class="a aa s" routerLink="/sign" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">signup/login</a></li>
+          <li class="li"><a class="a aa s" routerLink="/cart" (click)="cartcheck()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">cart({{cartitems}})</a></li>
+          <li class="li"><a href="" class="a aa s" routerLink="/seller" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">seller-login</a></li>
+          <li class="nav-item dropdown s">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
+              More
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="/seller-help" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">help</a></li>
+              <li><a class="dropdown-item" routerLink="/seller-contact" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">contact</a></li>
+              <li><a class="dropdown-item" routerLink="seller-about" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">about</a></li>
+            </ul>
+          </li>
+          <li class="li"><a class="a aa hide" (click)="men()"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                viewBox="0 -960 960 960" width="24px" fill="#1f1f1f">
+                <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+              </svg></a></li>
+        </ul>
+      </nav>
+      <!--navbar-->
+      <nav>
+        <ul class="sidebar ul" [class.sidebarmenu]="menu">
+          <li class="li"><a class="aa" (click)="men()"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                viewBox="0 -960 960 960" width="24px" fill="#1f1f1f">
+                <path
+                  d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+              </svg></a></li>
+          <li class="li search-bar">
+            <div class="search-container">
+              <input type="text" placeholder="Search..." #search class="search-input" (input)="suggestions($event)"
+                (blur)="closesuggestion()" [(ngModel)]="searchitem" class="search-input" />
+              <button class="search-button" (click)="subsearch(search.value)">
+                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="#333">
+                  <path
+                    d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C8.01 14 6 11.99 6 9.5S8.01 5 10.5 5 15 7.01 15 9.5 12.99 14 10.5 14z" />
+                </svg>
+              </button>
+              <!-- Autosuggestion dropdown -->
+              <ul class="autosuggestion">
+                <li *ngFor="let item of autosuggestion" (mousedown)="subsearch(item.productname)">{{ item.productname }}
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="li"><a class="aa" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">zozo</a></li>
+          <li class="li"><a class="a aa" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">home</a></li>
+          <li class="li"><a class="a aa" routerLink="/seller-contact" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">contact</a></li>
+          <li class="li"><a class="a aa" routerLink="/seller-help" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">help</a></li>
+          <li class="li"><a class="a aa" routerLink="/seller-about" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">about</a></li>
+          <li class="li"><a class="a aa" routerLink="/sign" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">sign/login</a></li>
+          <li class="li"><a class="a aa" routerLink="/seller" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">seller</a></li>
+          <li class="li"><a class="a aa" routerLink="/cart" (click)="cartcheck()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">cart({{cartitems}})</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!--navbar for seller page -->
+    <div *ngSwitchCase="'seller'">
+      <nav>
+        <ul class="ul">
+          <li class="li"><a class="aa" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">zozo</a></li>
+          <li class="li"><a class="a aa s" routerLink="/seller-home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">product list</a></li>
+          <li class="li"><a class="a aa s" routerLink="/seller-addproduct" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">add product</a></li>
+          <li class="li"><a class="a aa s" (click)="logout()">logout</a></li>
+          <li class="li"><a class="a aa s navbar-username" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{sellername}}</a></li>
+          <li class="nav-item dropdown s m">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              More
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="/seller-help" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">help</a></li>
+              <li><a class="dropdown-item" routerLink="/seller-contact" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">contact</a></li>
+              <li><a class="dropdown-item" routerLink="/seller-about" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"> about</a></li>
+            </ul>
+          </li>
+          <li class="li"><a class="a aa hide" (click)="men()"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                viewBox="0 -960 960 960" width="24px" fill="#1f1f1f">
+                <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+              </svg></a></li>
+        </ul>
+      </nav>
+      <nav>
+        <ul class="sidebar ul" [class.sidebarmenu]="menu">
+          <li class="li"><a class="aa" (click)="men()"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                viewBox="0 -960 960 960" width="24px" fill="#1f1f1f">
+                <path
+                  d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+              </svg></a></li>
+          <li class="li"><a class="aa">zozo</a></li>
+          <li class="li"><a class="a aa" routerLink="seller" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">home</a></li>
+          <li class="li"><a class="a aa" routerLink="/seller-contact" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">contact</a></li>
+          <li class="li"><a class="a aa" routerLink="/seller-help" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">help</a></li>
+          <li class="li"><a class="a aa" routerLink="/seller-about" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">about</a></li>
+          <li class="li"><a class="a aa" (click)="logout()">logout</a></li>
+          <li class="li"><a class="a aa" routerLink="/seller-productlist" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">product list</a></li>
+          <li class="li"><a class="a aa" routerLink="/seller-addproduct" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Add product</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!--user navbar-->
+
+    <div *ngSwitchCase="'user'">
+      <nav>
+        <ul class="ul">
+          <li class="li"><a class="aa">zozo</a></li>
+          <li class="li search-bar s">
+            <div class="search-container">
+              <input type="text" placeholder="Search..." #search class="search-input" (input)="suggestions($event)"
+                (blur)="closesuggestion()" [(ngModel)]="searchitem" />
+              <button class="search-button" (click)="subsearch(search.value)">
+                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="#333">
+                  <path
+                    d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C8.01 14 6 11.99 6 9.5S8.01 5 10.5 5 15 7.01 15 9.5 12.99 14 10.5 14z" />
+                </svg>
+              </button>
+
+              <!-- Autosuggestion dropdown -->
+              <ul class="autosuggestion">
+                <li *ngFor="let item of autosuggestion" (mousedown)="subsearch(item.productname)">{{ item.productname }}
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="li"><a class="a aa s" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">home</a></li>
+          <li class="li"><a class="a aa s" routerLink="/seller" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">seller</a></li>
+          <li class="li"><a class="a aa s" routerLink="/cart" (click)="cartcheck()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">cart({{cartitems}})</a></li>
+          <li class="li"><a class="a aa s" routerLink="/myorder" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">My order</a></li>
+          <li class="li"><a class="a aa s" (click)="userlogout()">logout</a></li>
+          <li class="li"><a class="a aa s navbar-username" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{username}}</a></li>
+          <li class="nav-item dropdown s m">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              More
+            </a>
+            <ul class="dropdown-menu li">
+              <li><a class="dropdown-item" routerLink="/seller-help" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">help</a></li>
+              <li><a class="dropdown-item" routerLink="/seller-contact" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">contact</a></li>
+              <li><a class="dropdown-item" routerLink="/seller-about" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">about</a></li>
+            </ul>
+          </li>
+          <li class="li"><a class="a aa hide" (click)="men()"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                viewBox="0 -960 960 960" width="24px" fill="#1f1f1f">
+                <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+              </svg></a></li>
+        </ul>
+      </nav>
+      <nav>
+        <ul class="sidebar ul" [class.sidebarmenu]="menu">
+          <li class="li"><a class="aa" (click)="men()"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                viewBox="0 -960 960 960" width="24px" fill="#1f1f1f">
+                <path
+                  d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+              </svg></a></li>
+          <li class="li"><a class="aa">zozo</a></li>
+          <li class="li"><a class="a aa" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">home</a></li>
+          <li class="li"><a class="a aa" routerLink="/seller-contact" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">contact</a></li>
+          <li class="li"><a class="a aa" routerLink="/seller-help" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">help</a></li>
+          <li class="li"><a class="a aa" routerLink="/seller-about" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">about</a></li>
+          <li class="li"><a class="a aa" (click)="userlogout()">logout</a></li>
+          <li class="li"><a class="a aa s navbar-username" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{username}}</a></li>
+          <li class="li"><a class="a aa" routerLink="/cart" (click)="cartcheck()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">cart({{cartitems}})</a></li>
+          <li class="li"><a class="a aa s" routerLink="/myorder" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">My order</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>

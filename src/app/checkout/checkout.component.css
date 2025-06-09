@@ -1,0 +1,272 @@
+/* Root Styles */
+:root {
+  --primary-color: #ff9f00;
+  --hover-color: #fb8c00;
+  --accent-color: #1a73e8;
+  --background: #f4f6f8;
+  --card-bg: #ffffff;
+  --text-dark: #222;
+  --text-light: #555;
+  --border-color: #ddd;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --radius: 12px;
+  --transition: all 0.3s ease;
+}
+
+/* Page Container */
+.checkout-page {
+  max-width: 1200px;
+  margin: 65px auto;
+  padding: 0 24px;
+  font-family: 'Poppins', sans-serif;
+  background: var(--background);
+}
+
+/* Title */
+.page-title {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Layout */
+.checkout-grid {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.checkout-left {
+  flex: 1;
+  min-width: 300px;
+}
+
+.checkout-right {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Card Section */
+.card-section {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 30px;
+  transition: var(--transition);
+}
+
+.card-section:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.section-heading {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--text-dark);
+}
+
+/* Form Inputs */
+form input {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--text-dark);
+  background-color: #fafafa;
+  transition: var(--transition);
+}
+
+form input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15);
+}
+
+.form-group {
+  display: flex;
+  gap: 16px;
+}
+.payment-options label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: var(--text-light);
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease;
+  width: 100%; /* full width so flex works properly */
+}
+
+.payment-options input[type="radio"] {
+  width: 10%;      /* half width for the input */
+  margin: 0;       /* remove default margin */
+  flex-shrink: 0;  /* do not shrink */
+  cursor: pointer;
+  accent-color: var(--primary-color);
+}
+
+.payment-options label span {
+  width: 50%;      /* half width for the text */
+  color: var(--text-light);
+  user-select: none;
+}
+
+
+/* Summary Card */
+.summary-card {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.summary-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--text-dark);
+}
+
+.item-list .item,
+.item.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  font-size: 15px;
+  color: var(--text-dark);
+}
+
+.item.total {
+  font-size: 17px;
+  font-weight: 600;
+  margin-top: 16px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 12px;
+}
+
+/* Button */
+.place-order-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--primary-color);
+  color: #54ac54;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius);
+  margin-top: 24px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.place-order-btn:hover {
+  background: var(--hover-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .checkout-grid {
+    flex-direction: column;
+  }
+
+  .checkout-right {
+    max-width: 100%;
+  }
+
+  .form-group {
+    flex-direction: column;
+  }
+}
+body {
+  background: linear-gradient(135deg, #f4f5fa, #fffdf7);
+
+  font-family: 'Poppins', sans-serif;
+  color: #1a1a1a;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/* Animate all headings, labels, and buttons */
+.page-title,
+.section-heading,
+.payment-options label,
+.summary-card h3,
+.place-order-btn {
+  position: relative;
+  transition: color 0.4s ease, text-shadow 0.4s ease, transform 0.3s ease;
+  cursor: default;
+}
+
+/* Subtle color glow and scale up on hover/focus */
+.page-title:hover,
+.section-heading:hover,
+.payment-options label:hover,
+.summary-card h3:hover,
+.place-order-btn:hover {
+  color: var(--primary-color);
+  text-shadow: 0 0 8px var(--primary-color);
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* Animate input placeholders fading */
+form input::placeholder {
+  transition: color 0.3s ease;
+}
+form input:focus::placeholder {
+  color: transparent;
+}
+
+/* Animate inputs on focus */
+form input:focus {
+  transform: scale(1.02);
+  transition: box-shadow 0.4s ease, border-color 0.4s ease, transform 0.3s ease;
+}
+
+/* Animate button shadow and scale */
+.place-order-btn {
+  will-change: transform, box-shadow;
+  box-shadow: 0 4px 12px rgba(255, 159, 0, 0.6);
+}
+
+.place-order-btn:hover {
+  box-shadow: 0 6px 20px rgba(251, 140, 0, 0.8);
+  transform: scale(1.05);
+}
+
+/* Smooth transition on payment option inputs (checkbox/radio) */
+.payment-options input {
+  transition: accent-color 0.3s ease;
+}
+
+.payment-options input:focus,
+.payment-options input:hover {
+  accent-color: var(--primary-color);
+}
+.payment-options input[type="radio"]:focus,
+.payment-options input[type="radio"]:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+.error {
+  color: red;
+  font-size: 12px;
+}
+.ordermsg {
+   font-size: 14px;
+  font-weight: 300;
+  color: greenyellow;
+  text-align: center;
+  margin-bottom: 20px;
+}

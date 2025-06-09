@@ -1,0 +1,173 @@
+<body>
+  <form class="form main" #loginn="ngForm" (ngSubmit)="login(loginn.value)" *ngIf="!showsignup">
+    <div class="flex-column">
+      <label>Email</label>
+    </div>
+    <div class="inputForm">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20" height="20">
+  <path d="M64 112c-8.8 0-16 7.2-16 16l0 22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1l0-22.1c0-8.8-7.2-16-16-16L64 112zM48 212.2L48 384c0 8.8 7.2 16 16 16l384 0c8.8 0 16-7.2 16-16l0-171.8L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64l384 0c35.3 0 64 28.7 64 64l0 256c0 35.3-28.7 64-64 64L64 448c-35.3 0-64-28.7-64-64L0 128z"/>
+</svg>
+      <input placeholder="Enter your Email" class="input" type="email" 
+             ngModel name="email" required email
+             #email="ngModel">
+    </div>
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
+      <div *ngIf="email.errors?.['required']">Email is required</div>
+      <div *ngIf="email.errors?.['email']">Please enter a valid email</div>
+    </div>
+
+    <div class="flex-column">
+      <label>Password</label>
+    </div>
+    <div class="inputForm">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="20" height="20">
+  <path d="M144 144l0 48 160 0 0-48c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192l0-48C80 64.5 144.5 0 224 0s144 64.5 144 144l0 48 16 0c35.3 0 64 28.7 64 64l0 192c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 256c0-35.3 28.7-64 64-64l16 0z"/>
+</svg>
+      <input placeholder="Enter your Password" class="input" type="password" 
+             ngModel name="password" required minlength="6"
+             #password="ngModel">
+    </div>
+    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error-message">
+      <div *ngIf="password.errors?.['required']">Password is required</div>
+      <div *ngIf="password.errors?.['minlength']">
+        Password must be at least 6 characters
+      </div>
+    </div>
+
+    <div class="flex-row">
+      <div>
+        <input type="checkbox" ngModel name="rememberMe">
+        <label class="span">Remember me</label>
+      </div>
+      <span class="span">Forgot password?</span>
+    </div>
+    
+    <span class="error">{{errors}}</span>
+    
+    <button class="button-submit" [disabled]="!loginn.valid">Sign In</button>
+    
+    <p class="p">Don't have an account? <span class="span" (click)="show()">Sign Up</span></p>
+    <p class="p line">Or With</p>
+    
+    <div class="flex-row">
+        <button class="btn google" (click)="$event.preventDefault()">
+        <svg width="20" height="20" viewBox="0 0 512 512">
+          <path d="M113.47,309.408L95.648,375.94l-65.139,1.378C11.042,341.211,0,299.9,0,256c0-42.451,10.324-82.483,28.624-117.732h0.014l57.992,10.632l25.404,57.644c-5.317,15.501-8.215,32.141-8.215,49.456C103.821,274.792,107.225,292.797,113.47,309.408z" fill="#FBBB00"/>
+          <path d="M507.527,208.176C510.467,223.662,512,239.655,512,256c0,18.328-1.927,36.206-5.598,53.451c-12.462,58.683-45.025,109.925-90.134,146.187l-0.014-0.014l-73.044-3.727l-10.338-64.535c29.932-17.554,53.324-45.025,65.646-77.911h-136.89V208.176h138.887L507.527,208.176L507.527,208.176z" fill="#518EF8"/>
+          <path d="M416.253,455.624l0.014,0.014C372.396,490.901,316.666,512,256,512c-97.491,0-182.252-54.491-225.491-134.681l82.961-67.91c21.619,57.698,77.278,98.771,142.53,98.771c28.047,0,54.323-7.582,76.87-20.818L416.253,455.624z" fill="#28B446"/>
+          <path d="M419.404,58.936l-82.933,67.896c-23.335-14.586-50.919-23.012-80.471-23.012c-66.729,0-123.429,42.957-143.965,102.724l-83.397-68.276h-0.014C71.23,56.123,157.06,0,256,0C318.115,0,375.068,22.126,419.404,58.936z" fill="#F14336"/>
+        </svg>
+        Google
+      </button>
+      <button class="btn apple" (click)="$event.preventDefault()">
+        <svg width="20" height="20" viewBox="0 0 22.773 22.773">
+          <path d="M15.769,0c0.053,0,0.106,0,0.162,0c0.13,1.606-0.483,2.806-1.228,3.675c-0.731,0.863-1.732,1.7-3.351,1.573c-0.108-1.583,0.506-2.694,1.25-3.561C13.292,0.879,14.557,0.16,15.769,0z"/>
+          <path d="M20.67,16.716c0,0.016,0,0.03,0,0.045c-0.455,1.378-1.104,2.559-1.896,3.655c-0.723,0.995-1.609,2.334-3.191,2.334c-1.367,0-2.275-0.879-3.676-0.903c-1.482-0.024-2.297,0.735-3.652,0.926c-0.155,0-0.31,0-0.462,0c-0.995-0.144-1.798-0.932-2.383-1.642c-1.725-2.098-3.058-4.808-3.306-8.276c0-0.34,0-0.679,0-1.019c0.105-2.482,1.311-4.5,2.914-5.478c0.846-0.52,2.009-0.963,3.304-0.765c0.555,0.086,1.122,0.276,1.619,0.464c0.471,0.181,1.06,0.502,1.618,0.485c0.378-0.011,0.754-0.208,1.135-0.347c1.116-0.403,2.21-0.865,3.652-0.648c1.733,0.262,2.963,1.032,3.723,2.22c-1.466,0.933-2.625,2.339-2.427,4.74C17.818,14.688,19.086,15.964,20.67,16.716z"/>
+        </svg>
+        Apple
+      </button>
+    </div>
+</form>
+
+  <!--signupp -->
+<form class="form main" #signupForm="ngForm" (ngSubmit)="signup(signupForm.value)" *ngIf="showsignup">
+    <!-- Name Field -->
+    <div class="flex-column">
+      <label>Name</label>
+    </div>
+    <div class="inputForm">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f">
+        <path d="M160-80q-33 0-56.5-23.5T80-160v-440q0-33 23.5-56.5T160-680h200v-120q0-33 23.5-56.5T440-880h80q33 0 56.5 23.5T600-800v120h200q33 0 56.5 23.5T880-600v440q0 33-23.5 56.5T800-80H160Zm0-80h640v-440H600q0 33-23.5 56.5T520-520h-80q-33 0-56.5-23.5T360-600H160v440Zm80-80h240v-18q0-17-9.5-31.5T444-312q-20-9-40.5-13.5T360-330q-23 0-43.5 4.5T276-312q-17 8-26.5 22.5T240-258v18Zm320-60h160v-60H560v60Zm-200-60q25 0 42.5-17.5T420-420q0-25-17.5-42.5T360-480q-25 0-42.5 17.5T300-420q0 25 17.5 42.5T360-360Zm200-60h160v-60H560v60ZM440-600h80v-200h-80v200Zm40 220Z"/>
+      </svg>
+      <input placeholder="Enter your Name" class="input" type="text" 
+             ngModel name="name" required minlength="2"
+             #name="ngModel">
+    </div>
+    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="error-message">
+      <div *ngIf="name.errors?.['required']">Name is required</div>
+      <div *ngIf="name.errors?.['minlength']">Name must be at least 2 characters</div>
+    </div>
+
+    <!-- Email Field -->
+    <div class="flex-column">
+      <label>Email</label>
+    </div>
+    <div class="inputForm">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 32 32" height="20">
+        <g data-name="Layer 3" id="Layer_3">
+          <path d="m30.853 13.87a15 15 0 0 0 -29.729 4.082 15.1 15.1 0 0 0 12.876 12.918 15.6 15.6 0 0 0 2.016.13 14.85 14.85 0 0 0 7.715-2.145 1 1 0 1 0 -1.031-1.711 13.007 13.007 0 1 1 5.458-6.529 2.149 2.149 0 0 1 -4.158-.759v-10.856a1 1 0 0 0 -2 0v1.726a8 8 0 1 0 .2 10.325 4.135 4.135 0 0 0 7.83.274 15.2 15.2 0 0 0 .823-7.455zm-14.853 8.13a6 6 0 1 1 6-6 6.006 6.006 0 0 1 -6 6z"/>
+        </g>
+      </svg>
+      <input placeholder="Enter your Email" class="input" type="email" 
+             ngModel name="email" required email
+             #email="ngModel">
+    </div>
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
+      <div *ngIf="email.errors?.['required']">Email is required</div>
+      <div *ngIf="email.errors?.['email']">Please enter a valid email</div>
+    </div>
+
+    <!-- Password Field -->
+    <div class="flex-column">
+      <label>Password</label>
+    </div>
+    <div class="inputForm">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="-64 0 512 512" height="20">
+        <path d="m336 512h-288c-26.453125 0-48-21.523438-48-48v-224c0-26.476562 21.546875-48 48-48h288c26.453125 0 48 21.523438 48 48v224c0 26.476562-21.546875 48-48 48zm-288-288c-8.8125 0-16 7.167969-16 16v224c0 8.832031 7.1875 16 16 16h288c8.8125 0 16-7.167969 16-16v-224c0-8.832031-7.1875-16-16-16zm0 0"/>
+        <path d="m304 224c-8.832031 0-16-7.167969-16-16v-80c0-52.929688-43.070312-96-96-96s-96 43.070312-96 96v80c0 8.832031-7.167969 16-16 16s-16-7.167969-16-16v-80c0-70.59375 57.40625-128 128-128s128 57.40625 128 128v80c0 8.832031-7.167969 16-16 16zm0 0"/>
+      </svg>
+      <input placeholder="Enter your Password" class="input" type="password" 
+             ngModel name="password" required minlength="6"
+             #password="ngModel">
+    </div>
+    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error-message">
+      <div *ngIf="password.errors?.['required']">Password is required</div>
+      <div *ngIf="password.errors?.['minlength']">Password must be at least 6 characters</div>
+    </div>
+
+    <!-- Remember Me & Forgot Password -->
+    <div class="flex-row">
+      <div>
+        <input type="checkbox" ngModel name="rememberMe" id="rememberMe">
+        <label for="rememberMe">Remember me</label>
+      </div>
+      <span class="span">Forgot password?</span>
+    </div>
+
+    <!-- Form Error Message -->
+    <span class="error">{{errors}}</span>
+    
+    <!-- Submit Button -->
+    <button class="button-submit" [disabled]="!signupForm.valid">Sign Up</button>
+    
+    <!-- Switch to Login -->
+    <p class="p">Have an account? <span class="span" (click)="show()">Login</span></p>
+    
+    <p class="p line">Or With</p>
+    
+    <!-- Social Login Buttons -->
+    <div class="flex-row">
+      <button class="btn google" (click)="$event.preventDefault()">
+        <svg width="20" height="20" viewBox="0 0 512 512">
+          <path d="M113.47,309.408L95.648,375.94l-65.139,1.378C11.042,341.211,0,299.9,0,256c0-42.451,10.324-82.483,28.624-117.732h0.014l57.992,10.632l25.404,57.644c-5.317,15.501-8.215,32.141-8.215,49.456C103.821,274.792,107.225,292.797,113.47,309.408z" fill="#FBBB00"/>
+          <path d="M507.527,208.176C510.467,223.662,512,239.655,512,256c0,18.328-1.927,36.206-5.598,53.451c-12.462,58.683-45.025,109.925-90.134,146.187l-0.014-0.014l-73.044-3.727l-10.338-64.535c29.932-17.554,53.324-45.025,65.646-77.911h-136.89V208.176h138.887L507.527,208.176L507.527,208.176z" fill="#518EF8"/>
+          <path d="M416.253,455.624l0.014,0.014C372.396,490.901,316.666,512,256,512c-97.491,0-182.252-54.491-225.491-134.681l82.961-67.91c21.619,57.698,77.278,98.771,142.53,98.771c28.047,0,54.323-7.582,76.87-20.818L416.253,455.624z" fill="#28B446"/>
+          <path d="M419.404,58.936l-82.933,67.896c-23.335-14.586-50.919-23.012-80.471-23.012c-66.729,0-123.429,42.957-143.965,102.724l-83.397-68.276h-0.014C71.23,56.123,157.06,0,256,0C318.115,0,375.068,22.126,419.404,58.936z" fill="#F14336"/>
+        </svg>
+        Google
+      </button>
+      <button class="btn apple" (click)="$event.preventDefault()">
+        <svg width="20" height="20" viewBox="0 0 22.773 22.773">
+          <path d="M15.769,0c0.053,0,0.106,0,0.162,0c0.13,1.606-0.483,2.806-1.228,3.675c-0.731,0.863-1.732,1.7-3.351,1.573c-0.108-1.583,0.506-2.694,1.25-3.561C13.292,0.879,14.557,0.16,15.769,0z"/>
+          <path d="M20.67,16.716c0,0.016,0,0.03,0,0.045c-0.455,1.378-1.104,2.559-1.896,3.655c-0.723,0.995-1.609,2.334-3.191,2.334c-1.367,0-2.275-0.879-3.676-0.903c-1.482-0.024-2.297,0.735-3.652,0.926c-0.155,0-0.31,0-0.462,0c-0.995-0.144-1.798-0.932-2.383-1.642c-1.725-2.098-3.058-4.808-3.306-8.276c0-0.34,0-0.679,0-1.019c0.105-2.482,1.311-4.5,2.914-5.478c0.846-0.52,2.009-0.963,3.304-0.765c0.555,0.086,1.122,0.276,1.619,0.464c0.471,0.181,1.06,0.502,1.618,0.485c0.378-0.011,0.754-0.208,1.135-0.347c1.116-0.403,2.21-0.865,3.652-0.648c1.733,0.262,2.963,1.032,3.723,2.22c-1.466,0.933-2.625,2.339-2.427,4.74C17.818,14.688,19.086,15.964,20.67,16.716z"/>
+        </svg>
+        Apple
+      </button>
+    </div>
+</form>
+</body>
+
+
+<footer style="background-color: #111; color: #aaa; text-align: center; padding: 10px 15px; font-size: 13px;">
+  &copy; 2025 zozo. All rights reserved.
+</footer>

@@ -1,0 +1,23 @@
+<div class="order-container" *ngIf="orderlist && objectKeys(orderlist).length > 0; else noOrders">
+  <h2 class="order-title">My Orders</h2>
+
+  <div class="order-list">
+    <div class="order-card" *ngFor="let order of orderlist">
+      <div class="order-info">
+        <div class="order-img">
+          <img src="https://th.bing.com/th/id/OIP.PFqHx4U_t4By9NcUz_SDuwHaHa?rs=1&pid=ImgDetMain" alt="Product">
+        </div>
+        <div class="order-details">
+          <p class="order-id"><strong>Order ID:</strong> #{{ order.id }}</p>
+          <p class="order-price"><strong>Total:</strong> ₹{{ order.totalprice }}</p>
+          <p class="order-status"><strong>Status:</strong> <span class="badge in-progress">In Progress</span></p>
+          <button class="cancel-btn" (click)="cancelorder(order.id)">Cancel Order</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noOrders>
+  <div class="no-orders">No orders found.</div>
+</ng-template>

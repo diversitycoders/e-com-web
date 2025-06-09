@@ -1,0 +1,160 @@
+{
+  "users": [
+    {
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "password": "121212",
+      "rememberMe": "",
+      "id": "ZAyfOa_"
+    }
+  ],
+  "sellers": [
+    {
+      "name": "zohaib",
+      "email": "zozo@gmail.com",
+      "password": "121212",
+      "id": "jYR13Ez"
+    }
+  ],
+  "product": [
+    {
+      "id": "e453",
+      "productname": "laptop",
+      "price": 5000,
+      "description": "HP 15, 13th Gen Intel Core i3-1315U, 8GB DDR4, 512GB SSD, (Win 11, Office 21, Grey, 1.59kg), Anti-Glare, Micro-Edge,15.6-inch(39.6cm), FHD Laptop, Intel UHD Graphics, 1080p FHD Camera, fd0006TU",
+      "brand": "Hp",
+      "category": "electronics",
+      "photo": "https://th.bing.com/th/id/R.394d42a12a654a01aff55a4ac589de48?rik=8meqYWp%2fRiAmDw&riu=http%3a%2f%2fstore.hp.com%2fUKStore%2fHtml%2fMerch%2fImages%2fc05475056_1750x1285.jpg&ehk=hFHW0bsoA4Vrq9NqTnBn9ZROJe9jXLuXOG2U%2bb2O7Wk%3d&risl=&pid=ImgRaw&r=0"
+    },
+    {
+      "productname": "iphone 13",
+      "price": 600,
+      "description": "15 cm (6.1-inch) Super Retina XDR display\nCinematic mode adds shallow depth of field and shifts focus automatically in your video",
+      "brand": "apple",
+      "category": "electronics",
+      "photo": "https://www.sizescreens.com/wp-content/uploads/2021/11/Apple-iPhone-13-3-1536x1306.jpg",
+      "id": "d69b"
+    },
+    {
+      "productname": "T-shirt",
+      "price": 12,
+      "description": "Lux Cozi Men's Cotton Regular Fit Polo T-Shirt",
+      "brand": "faasnnn",
+      "category": "fashion",
+      "photo": "https://th.bing.com/th/id/OIP.GcHrGRsCo2sO7VDNay6RoQHaE7?cb=iwc2&rs=1&pid=ImgDetMain",
+      "id": "4a21"
+    },
+    {
+      "productname": "ball",
+      "price": 5,
+      "description": "amazing ball bounces really well",
+      "brand": "ballu",
+      "category": "sports",
+      "photo": "https://th.bing.com/th/id/OIP.rzOjvfUKmt7ElJiQl_w6-QHaHa?cb=iwc2&rs=1&pid=ImgDetMain",
+      "id": "21bf"
+    },
+    {
+      "id": "70ef",
+      "productname": "Men shirt",
+      "price": 23,
+      "description": "men shirt cotton regular with dashing looks",
+      "brand": "nike",
+      "category": "fashion",
+      "photo": "https://th.bing.com/th/id/OIP.49wxmw7ck97EVNBdWXIINQHaHa?cb=iwc2&rs=1&pid=ImgDetMain"
+    },
+    {
+      "id": "6ec7",
+      "productname": "bagpack",
+      "price": 17,
+      "description": "Arctic Hunter Travel Backpack for Men Women 41L Expandable Clothing Pocket 17-inch Laptop Pocket USB Port 3 in 1 Laptop Bag Water-resistant Multiple Pockets for Overnight",
+      "brand": "bagga",
+      "category": "fashion",
+      "photo": "https://www.bhphotovideo.com/images/images2000x2000/jansport_typ79ru_right_pack_backpack_desert_1112260.jpg"
+    },
+    {
+      "id": "0275",
+      "productname": "Acer laptop",
+      "price": 300,
+      "description": "Acer [SmartChoice Aspire Lite AMD Ryzen 5-5625U Premium Thin and Light Laptop (16 GB RAM/512 GB SSD/Windows 11 Home) AL15-41, 39.62 cm (15.6\") Full HD Display, Metal Body, Steel Gray, 1.59 KG",
+      "brand": "Acer",
+      "category": "electronics",
+      "photo": "https://m.media-amazon.com/images/I/71czGb00k5L.jpg"
+    },
+    {
+      "id": "3147",
+      "productname": "USB C ",
+      "price": 7,
+      "description": "Verilux® USB C Hub 6 in 1 with 87W Power Delivery & USB C Data Transfer Multiport Adapter with 4K@30Hz HDMI SD/TF Card Reader 3.0 USB Hub Type C Hub for MacBook iPhone with Storage Bag 24CM Long Cable",
+      "brand": "verilux",
+      "category": "electronics",
+      "photo": "https://m.media-amazon.com/images/I/617U7C1iQkL._AC_.jpg"
+    },
+    {
+      "id": "b8ca",
+      "productname": "scooter",
+      "price": 400,
+      "description": "Hero XOOM (ZX) Scooter Matt Shadow Grey Booking for Ex-Showroom Price",
+      "brand": "Hero",
+      "category": "automotive",
+      "photo": "https://m.media-amazon.com/images/I/71v2-TnnG5L._SL1500_.jpg"
+    },
+    {
+      "id": "72cf",
+      "productname": "helmet",
+      "price": 21,
+      "description": "Steelbird SBA-1 R2K Live ISI Certified Full Face Graphic Helmet",
+      "brand": "steelbird",
+      "category": "automotive",
+      "photo": "https://images-na.ssl-images-amazon.com/images/I/51iCQIIoWyL.jpg"
+    },
+    {
+      "id": "cddc",
+      "productname": "scrubber",
+      "price": 2,
+      "description": "Scotch-Brite 1 Stainless Steel Scrubber (15g) and 1 Scrub pad Combo",
+      "brand": "scotch",
+      "category": "home",
+      "photo": "https://m.media-amazon.com/images/I/91qD-I+84bL._SL1500_.jpg"
+    },
+    {
+      "id": "2151",
+      "productname": "toilet cleaner brush",
+      "price": 3,
+      "description": "Chakaachak Glide Toilet Brush with Storage, Toilet Cleaning Brush with Container, Bathroom Brush-Multicolour.",
+      "brand": "chakaachak",
+      "category": "home",
+      "photo": "https://m.media-amazon.com/images/I/316kLWHeYkL._SX300_SY300_QL70_ML2_.jpg"
+    },
+    {
+      "id": "a953",
+      "productname": "Ac",
+      "price": 200,
+      "description": "Daikin 1.5 Ton 3 Star Inverter Split AC (Copper, PM 2.5 Filter, Triple Display, Dew Clean Technology, Coanda Airflow, 2024 Model, MTKL50U, White)",
+      "brand": "daikin",
+      "category": "electronics",
+      "photo": "https://m.media-amazon.com/images/I/61Y1T1q5crL._SL1500_.jpg"
+    },
+    {
+      "id": "b782",
+      "productname": "refrigerator",
+      "price": 48,
+      "description": "Whirlpool 184 L 2 Star Direct-Cool Single Door Refrigerator (205 WDE CLS 2S SAPPHIRE BLUE-Z, Blue,2023 Model)",
+      "brand": "whirlpool",
+      "category": "electronics",
+      "photo": "https://rukminim2.flixcart.com/image/832/832/xif0q/refrigerator-new/b/u/l/-original-imagqujvmbgytqup.jpeg?q=70"
+    },
+    {
+      "id": "0114",
+      "productname": "T-shirt",
+      "price": 10,
+      "description": "NOBERO Men's Cotton Regular Fit T-Shirt",
+      "brand": "Nobero",
+      "category": "fashion",
+      "photo": "https://m.media-amazon.com/images/I/61JnY-u04uL._SX466_.jpg"
+    }
+  ],
+  "cart": [
+    
+  ],
+  "orders": []
+}

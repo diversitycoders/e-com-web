@@ -1,0 +1,27 @@
+<div class="search-results-wrapper" *ngIf="noresult">
+  <div class="search-item" *ngFor="let item of productlist">
+    <img src="{{ item.photo }}" alt="{{ item.productname }}">
+
+    <div class="product-info">
+      <h3>{{ item.productname }}</h3>
+      <p class="price">₹{{ item.price }}</p>
+      <div class="meta">
+        <span class="brand">{{ item.brand }}</span>
+        <span class="category">{{ item.category }}</span>
+      </div>
+      <p class="description">{{ item.description }}</p>
+
+      <div class="action-buttons">
+        <button class="btn-cart" (click)="addToCart(item)">🛒 Add to Cart</button>
+        <button class="btn-details" routerLink="/detail/{{item.id}}">ℹ️ Details</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="no-results-container" *ngIf="noresult==false">
+  <div class="no-results-icon">🔍</div>
+  <h2>No Results Found</h2>
+  <p>Sorry, we couldn't find any products matching your search.</p>
+  <button onclick="window.location.reload()">Try Again</button>
+</div>
+

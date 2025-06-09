@@ -1,0 +1,60 @@
+<body>
+<div class="cart-container" *ngIf="cartdata && objectKeys(cartdata).length > 0; else emptyCart">
+  <!-- Cart Items -->
+  <div class="cart-items" >
+    <div class="cart-item" *ngFor="let item of cartdata">
+      <img [src]="item.photo" alt="{{ item.productname }}" class="item-img" />
+
+      <div class="item-info">
+        <h3>{{ item.productname }}</h3>
+        <p>{{ item.brand }} | {{ item.category }}</p>
+        <p class="desc">{{ item.description }}</p>
+        <p class="price">₹{{ item.price }} × {{ item.quantity }} = ₹{{ item.price * item.quantity }}</p>
+
+        <div class="item-actions">
+          <button class="save-btn">Save for Later</button>
+          <button class="remove-btn" (click)="removecart(item.id)">Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Price Summary -->
+  <div class="cart-summary">
+    <h2>SHIPPPING & DETAILS</h2>
+    <div class="summary-row">
+      <span>Price ({{ cartlength }} items)</span>
+      <span>₹{{productsummary.price}}</span>
+    </div>
+    <div class="summary-row"  >
+      <span>Discount</span>
+      <span class="discount" >₹{{productsummary.discount}}</span>
+    </div>
+    
+    <div class="summary-row">
+      <span>tax</span>
+    <span >₹ {{productsummary.tax}}</span>
+    </div>
+    <div class="summary-row">
+      <span>Delivery Charges</span>
+      <span class="free" *ngIf="productsummary.delivery == 0">Free</span>
+      <span class="free" *ngIf="productsummary.delivery > 0">{{productsummary.delivery}}</span>
+    </div>
+    <hr />
+    <div class="summary-row total">
+      <strong>Total Amount</strong>
+      <strong>₹{{productsummary.total}}</strong>
+    </div>
+    <p class="save-msg">You will save ₹{{productsummary.price - productsummary.total}} on this order</p>
+    <button class="order-btn" (click)="checkout()">CHECKOUT</button>
+  </div>
+</div>
+ <!-- Empty Cart Template -->
+<ng-template #emptyCart>
+  <div class="empty-cart">
+    <h2>Your cart is empty</h2>
+    <p>Looks like you haven't added anything to your cart yet.</p>
+    <a routerLink="/" class="continue-shopping">Continue Shopping</a>
+  </div>
+</ng-template>
+</body>

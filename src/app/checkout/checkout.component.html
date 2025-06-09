@@ -1,0 +1,102 @@
+<form class="checkout-page" [formGroup]="checkoutform" (ngSubmit)="form()">
+  <h2 class="page-title">Secure Checkout</h2>
+  <p class="ordermsg">{{ordermsg}}</p>
+  <div class="checkout-grid">
+    <div class="checkout-left">
+      <!-- Delivery Address -->
+      <div class="card-section" formGroupName="deliveryAddress">
+        <h3 class="section-heading">1. Delivery Address</h3>
+
+        <div class="form-group">
+          <div style="flex: 1">
+            <input type="text" formControlName="Name" placeholder="Full Name" />
+            <div class="error" *ngIf="checkoutform.get('deliveryAddress.Name')?.touched && checkoutform.get('deliveryAddress.Name')?.invalid">
+              Name is required.
+            </div>
+          </div>
+
+          <div style="flex: 1">
+            <input type="text" formControlName="phoneNumber" placeholder="Phone Number" />
+            <div class="error" *ngIf="checkoutform.get('deliveryAddress.phoneNumber')?.touched && checkoutform.get('deliveryAddress.phoneNumber')?.invalid">
+              <div *ngIf="checkoutform.get('deliveryAddress.phoneNumber')?.errors?.['required']">Phone number is required.</div>
+              <div *ngIf="checkoutform.get('deliveryAddress.phoneNumber')?.errors?.['pattern']">Enter valid 10-digit phone number.</div>
+            </div>
+          </div>
+        </div>
+
+        <input type="text" formControlName="email" placeholder="Enter your email" />
+        <div class="error" *ngIf="checkoutform.get('deliveryAddress.email')?.touched && checkoutform.get('deliveryAddress.email')?.invalid">
+          <div *ngIf="checkoutform.get('deliveryAddress.email')?.errors?.['required']">Email is required.</div>
+          <div *ngIf="checkoutform.get('deliveryAddress.email')?.errors?.['email']">Enter a valid email.</div>
+        </div>
+
+        <input type="text" formControlName="addressLine" placeholder="Flat, House no., Building, Company ,Area, Colony, Street, Sector" />
+        <div class="error" *ngIf="checkoutform.get('deliveryAddress.addressLine')?.touched && checkoutform.get('deliveryAddress.addressLine')?.invalid">
+          Address is required.
+        </div>
+
+        <div class="form-group">
+          <div style="flex: 1">
+            <input type="text" formControlName="city" placeholder="City" />
+            <div class="error" *ngIf="checkoutform.get('deliveryAddress.city')?.touched && checkoutform.get('deliveryAddress.city')?.invalid">
+              City is required.
+            </div>
+          </div>
+          <div style="flex: 1">
+            <input type="text" formControlName="pincode" placeholder="Pincode" />
+            <div class="error" *ngIf="checkoutform.get('deliveryAddress.pincode')?.touched && checkoutform.get('deliveryAddress.pincode')?.invalid">
+              <div *ngIf="checkoutform.get('deliveryAddress.pincode')?.errors?.['required']">Pincode is required.</div>
+              <div *ngIf="checkoutform.get('deliveryAddress.pincode')?.errors?.['pattern']">Enter valid 6-digit pincode.</div>
+            </div>
+          </div>
+        </div>
+
+        <input type="text" formControlName="state" placeholder="State" />
+        <div class="error" *ngIf="checkoutform.get('deliveryAddress.state')?.touched && checkoutform.get('deliveryAddress.state')?.invalid">
+          State is required.
+        </div>
+      </div>
+
+      <!-- Payment Method -->
+      <div class="card-section" formGroupName="payment">
+        <h3 class="section-heading">2. Payment Method</h3>
+        <div class="payment-options">
+          <label>
+            <input type="radio" formControlName="paymentMethod" value="UPI / Wallet" />
+            UPI / Wallet
+          </label>
+          <label>
+            <input type="radio" formControlName="paymentMethod" value="Cash on Delivery" checked/>
+            Cash on Delivery
+          </label>
+          <label>
+            <input type="radio" formControlName="paymentMethod" value="Credit / Debit Card" />
+            Credit / Debit Card
+          </label>
+        </div>
+        <div class="error" *ngIf="checkoutform.get('payment.paymentMethod')?.touched && checkoutform.get('payment.paymentMethod')?.invalid">
+          Payment method is required.
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Order Summary -->
+    <div class="checkout-right">
+      <div class="summary-card">
+        <h3>Order Summary</h3>
+        <div class="item-list">
+          <div class="item" *ngFor="let item of cartdata">
+            <span>{{item.productname}} ({{item.quantity}})</span>
+            <span>₹{{item.price * item.quantity}}</span>
+          </div>
+        </div>
+        <hr />
+        <div class="item total">
+          <span>Total</span>
+          <strong>₹{{productsummary.total}}</strong>
+        </div>
+        <button class="place-order-btn" type="submit">Place Your Order</button>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,50 @@
+<div class="form-container">
+  <h2>🛍️ Add New Product</h2>
+  <p class="message">{{addproductmessage}}</p>
+  <form #forms="ngForm" (ngSubmit)="addproduct(forms.value);forms.reset()">
+
+    <div class="form-group">
+      <label for="productName">Product Name</label>
+      <input type="text" id="productName" name="productname" ngModel placeholder="Enter product name" />
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price ($)</label>
+      <input type="number" id="price" name="price" placeholder="e.g. 99.99" ngModel/>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" rows="4" name="description" ngModel placeholder="Write a short description..."></textarea>
+    </div>
+    <!-- BRAND -->
+<div class="form-group">
+  <label for="brand">Brand</label>
+  <input type="text" id="brand" name="brand" ngModel placeholder="e.g. Nike, Samsung" />
+</div>
+
+<!-- CATEGORY -->
+<div class="form-group">
+  <label for="category">Category</label>
+  <select id="category" name="category" ngModel>
+    <option value="">Select a category</option>
+    <option value="electronics">Electronics</option>
+    <option value="fashion">Fashion</option>
+    <option value="home">Home & Kitchen</option>
+    <option value="books">Books</option>
+    <option value="sports">Sports</option>
+    <option value="toys">Toys</option>
+  <option value="beauty">Beauty & Personal Care</option>
+  <option value="automotive">Automotive</option>
+  <option value="grocery">Grocery</option>
+  </select>
+</div>
+
+    <div class="form-group">
+      <label for="photo">Product Photo</label>
+      <input type="text" id="photo" name="photo" placeholder="Enter product photo URL" ngModel/>
+    </div>
+    <button type="submit" >➕ Submit Product</button>
+  </form>
+</div>
+
